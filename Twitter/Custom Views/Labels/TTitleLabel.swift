@@ -26,10 +26,11 @@ class TTitleLabel: UILabel {
     }
     
     func configure() {
-        textColor       = .label
+        textColor                 = .label
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.9
-        lineBreakMode      = .byWordWrapping
+        minimumScaleFactor        = 0.9
+        numberOfLines             = 3
+        lineBreakMode             = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

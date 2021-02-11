@@ -8,7 +8,7 @@
 import UIKit
 
 class TTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,21 +19,18 @@ class TTabBarController: UITabBarController {
     func createHomeNavController() -> UINavigationController {
         let homeVC = HomeVC()
         homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 0)
-        
         return UINavigationController(rootViewController: homeVC)
     }
     
     func createTrendNavController() -> UINavigationController {
         let trendVC = TrendVC()
         trendVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), tag: 0)
-        
         return UINavigationController(rootViewController: trendVC)
     }
     
     func createNotificationNavController() -> UINavigationController {
         let notificationVC = NotificationVC()
         notificationVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "bell"), tag: 0)
-        
         return UINavigationController(rootViewController: notificationVC)
     }
     
