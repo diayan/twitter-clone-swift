@@ -22,6 +22,7 @@ class AuthenticationVC: UIViewController {
         layoutUI()
         configureStackView()
         configureUIElements()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +58,8 @@ class AuthenticationVC: UIViewController {
         callToActionLabel.sizeToFit()
         loginButton.setTitleColor(.systemBlue, for: .normal)
         
+        loginButton.addTarget(self, action: #selector(pushToLogin), for: .touchUpInside)
+
         NSLayoutConstraint.activate([
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -76,6 +79,8 @@ class AuthenticationVC: UIViewController {
         whatHappenLabel.translatesAutoresizingMaskIntoConstraints     = false
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
         
+        createAccountButton.addTarget(self, action: #selector(pushToCreateAccount), for: .touchUpInside)
+
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -92,5 +97,13 @@ class AuthenticationVC: UIViewController {
             createAccountButton.topAnchor.constraint(equalTo: whatHappenLabel.bottomAnchor, constant: 40),
             createAccountButton.heightAnchor.constraint(equalToConstant: 56)
         ])
+    }
+    
+    @objc func pushToCreateAccount() {
+        navigationController?.pushViewController(CreateAccountVC(), animated: true)
+    }
+    
+    @objc func pushToLogin() {
+        navigationController?.pushViewController(LoginVC(), animated: true)
     }
 }
