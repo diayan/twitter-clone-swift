@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21ED16425D80D8900946D0B /* TAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ED16325D80D8900946D0B /* TAuthTextField.swift */; };
+		B227AD8125DB2DF500E6E9E8 /* TwitterTextEditor in Frameworks */ = {isa = PBXBuildFile; productRef = B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */; };
+		B227AD8225DB2DF500E6E9E8 /* TwitterTextEditor in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B299344C25D1DC8C00159D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299344B25D1DC8C00159D65 /* AppDelegate.swift */; };
 		B299344E25D1DC8C00159D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299344D25D1DC8C00159D65 /* SceneDelegate.swift */; };
 		B299345525D1DC8F00159D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B299345425D1DC8F00159D65 /* Assets.xcassets */; };
@@ -23,7 +26,22 @@
 		B299349E25D34A8300159D65 /* TButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299349D25D34A8300159D65 /* TButton.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B227AD8325DB2DF500E6E9E8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B227AD8225DB2DF500E6E9E8 /* TwitterTextEditor in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B21ED16325D80D8900946D0B /* TAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAuthTextField.swift; sourceTree = "<group>"; };
 		B299344825D1DC8C00159D65 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B299344B25D1DC8C00159D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B299344D25D1DC8C00159D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,12 +65,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B227AD8125DB2DF500E6E9E8 /* TwitterTextEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B21ED16125D80D4A00946D0B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B299349D25D34A8300159D65 /* TButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		B21ED16625D80E3D00946D0B /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				B21ED16325D80D8900946D0B /* TAuthTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
 		B299343F25D1DC8C00159D65 = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +131,8 @@
 			children = (
 				B299346925D1E40D00159D65 /* TabBarControllers */,
 				B299349725D33A6100159D65 /* Labels */,
-				B299349D25D34A8300159D65 /* TButton.swift */,
+				B21ED16125D80D4A00946D0B /* Buttons */,
+				B21ED16625D80E3D00946D0B /* TextFields */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -149,12 +185,16 @@
 				B299344425D1DC8C00159D65 /* Sources */,
 				B299344525D1DC8C00159D65 /* Frameworks */,
 				B299344625D1DC8C00159D65 /* Resources */,
+				B227AD8325DB2DF500E6E9E8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Twitter;
+			packageProductDependencies = (
+				B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */,
+			);
 			productName = Twitter;
 			productReference = B299344825D1DC8C00159D65 /* Twitter.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +222,9 @@
 				Base,
 			);
 			mainGroup = B299343F25D1DC8C00159D65;
+			packageReferences = (
+				B227AD7F25DB2DF500E6E9E8 /* XCRemoteSwiftPackageReference "TwitterTextEditor" */,
+			);
 			productRefGroup = B299344925D1DC8C00159D65 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -211,6 +254,7 @@
 				B299349E25D34A8300159D65 /* TButton.swift in Sources */,
 				B299348425D1E60300159D65 /* MessageVC.swift in Sources */,
 				B299347E25D1E5DE00159D65 /* TrendVC.swift in Sources */,
+				B21ED16425D80D8900946D0B /* TAuthTextField.swift in Sources */,
 				B299348B25D334AC00159D65 /* LoginVC.swift in Sources */,
 				B299347925D1E5C200159D65 /* HomeVC.swift in Sources */,
 				B299349125D3350600159D65 /* AuthenticationVC.swift in Sources */,
@@ -415,6 +459,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B227AD7F25DB2DF500E6E9E8 /* XCRemoteSwiftPackageReference "TwitterTextEditor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twitter/TwitterTextEditor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B227AD7F25DB2DF500E6E9E8 /* XCRemoteSwiftPackageReference "TwitterTextEditor" */;
+			productName = TwitterTextEditor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B299344025D1DC8C00159D65 /* Project object */;
 }
