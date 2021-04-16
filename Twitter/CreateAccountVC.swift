@@ -16,6 +16,9 @@ class CreateAccountVC: UIViewController {
     let userNameTextField      = UITextField()
     let datePicker             = UIDatePicker()
     let dobTextView            = UITextField()
+    let toolbar                = UIToolbar()
+    let separatorView          = UIView()
+    var doneButton             = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,27 +28,40 @@ class CreateAccountVC: UIViewController {
         layoutUI()
         setNavigationItem()
         configureUIElements()
-        
-        datePicker.datePickerMode           = UIDatePicker.Mode.date
-        dobTextView.inputView               = datePicker
+        configureDatePicker()
     }
     
     func configureUIElements() {
         createAccountLable.text             = "Create your account"
         createAccountLable.textAlignment    = .center
         
-        nameTextField.borderStyle           = UITextField.BorderStyle.roundedRect
+        nameTextField.borderStyle           = .none
         nameTextField.placeholder           = "Name"
         
         userNameTextField.placeholder       = "Phone number or email address"
-        userNameTextField.borderStyle       = UITextField.BorderStyle.roundedRect
+        userNameTextField.borderStyle       = .none
         
         dobTextView.placeholder             = "Date of birth"
-        dobTextView.borderStyle             = UITextField.BorderStyle.roundedRect
+        dobTextView.borderStyle             = .none
         
+        separatorView.backgroundColor       = .systemGray
+
     }
     
-    func handleDateTextView() {
+    func configureDatePicker() {
+        toolbar.sizeToFit()
+        doneButton                          = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        dobTextView.inputAccessoryView      = toolbar
+        datePicker.datePickerMode           = .date
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        } else {
+            // Fallback on earlier versions
+        }
+        dobTextView.inputView               = datePicker
+    }
+    
+    @objc func donePressed() {
         
     }
     
@@ -56,15 +72,15 @@ class CreateAccountVC: UIViewController {
         view.addSubview(nameTextField)
         view.addSubview(userNameTextField)
         view.addSubview(dobTextView)
-        view.addSubview(datePicker)
-        
+        view.addSubview(separatorView)
+                
         logoImageView.translatesAutoresizingMaskIntoConstraints       = false
         createAccountLable.translatesAutoresizingMaskIntoConstraints  = false
         nameTextView.translatesAutoresizingMaskIntoConstraints        = false
         nameTextField.translatesAutoresizingMaskIntoConstraints       = false
         userNameTextField.translatesAutoresizingMaskIntoConstraints   = false
         dobTextView.translatesAutoresizingMaskIntoConstraints         = false
-        datePicker.translatesAutoresizingMaskIntoConstraints          = false
+        separatorView.translatesAutoresizingMaskIntoConstraints       = false
         
         NSLayoutConstraint.activate([
 
@@ -88,10 +104,11 @@ class CreateAccountVC: UIViewController {
             dobTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             dobTextView.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 20),
             
-            datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            datePicker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
-            //nameTextField.heightAnchor.constraint(equalToConstant: 35)
+            separatorView.topAnchor.constraint(equalTo: dobTextView.bottomAnchor, constant: 8),
+            separatorView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            separatorView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            separatorView.heightAnchor.constraint(equalToConstant: 0.78),
+        
         ])
     }
     
@@ -109,6 +126,5 @@ extension CreateAccountVC: TextEditorViewTextAttributesDelegate {
     func textEditorView(_ textEditorView: TextEditorView,
                         updateAttributedString attributedString: NSAttributedString,
                         completion: @escaping (NSAttributedString?) -> Void){
-        
     }
 }
