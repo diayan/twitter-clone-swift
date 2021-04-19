@@ -17,8 +17,11 @@ class CreateAccountVC: UIViewController {
     let datePicker             = UIDatePicker()
     let dobTextView            = UITextField()
     let toolbar                = UIToolbar()
-    let separatorView          = UIView()
+    let dobDividerView         = UIView()
     var doneButton             = UIBarButtonItem()
+    var nameDividerView        = UIView()
+    var usernameDividerView    = UIView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +47,9 @@ class CreateAccountVC: UIViewController {
         dobTextView.placeholder             = "Date of birth"
         dobTextView.borderStyle             = .none
         
-        separatorView.backgroundColor       = .systemGray
+        dobDividerView.backgroundColor      = .systemGray
+        nameDividerView.backgroundColor     = .systemGray
+        usernameDividerView.backgroundColor = .systemGray
 
     }
     
@@ -62,7 +67,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @objc func donePressed() {
-        
+        dismiss(animated: true)
     }
     
     func layoutUI() {
@@ -72,7 +77,9 @@ class CreateAccountVC: UIViewController {
         view.addSubview(nameTextField)
         view.addSubview(userNameTextField)
         view.addSubview(dobTextView)
-        view.addSubview(separatorView)
+        view.addSubview(dobDividerView)
+        view.addSubview(nameDividerView)
+        view.addSubview(usernameDividerView)
                 
         logoImageView.translatesAutoresizingMaskIntoConstraints       = false
         createAccountLable.translatesAutoresizingMaskIntoConstraints  = false
@@ -80,7 +87,9 @@ class CreateAccountVC: UIViewController {
         nameTextField.translatesAutoresizingMaskIntoConstraints       = false
         userNameTextField.translatesAutoresizingMaskIntoConstraints   = false
         dobTextView.translatesAutoresizingMaskIntoConstraints         = false
-        separatorView.translatesAutoresizingMaskIntoConstraints       = false
+        dobDividerView.translatesAutoresizingMaskIntoConstraints      = false
+        nameDividerView.translatesAutoresizingMaskIntoConstraints     = false
+        usernameDividerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
 
@@ -96,18 +105,28 @@ class CreateAccountVC: UIViewController {
             nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             
+            nameDividerView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 8),
+            nameDividerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            nameDividerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            nameDividerView.heightAnchor.constraint(equalToConstant: 0.78),
+            
             userNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             userNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            userNameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
+            userNameTextField.topAnchor.constraint(equalTo: nameDividerView.bottomAnchor, constant: 20),
         
+            usernameDividerView.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 8),
+            usernameDividerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            usernameDividerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            usernameDividerView.heightAnchor.constraint(equalToConstant: 0.78),
+
             dobTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             dobTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            dobTextView.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 20),
+            dobTextView.topAnchor.constraint(equalTo: usernameDividerView.bottomAnchor, constant: 20),
             
-            separatorView.topAnchor.constraint(equalTo: dobTextView.bottomAnchor, constant: 8),
-            separatorView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            separatorView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            separatorView.heightAnchor.constraint(equalToConstant: 0.78),
+            dobDividerView.topAnchor.constraint(equalTo: dobTextView.bottomAnchor, constant: 8),
+            dobDividerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            dobDividerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            dobDividerView.heightAnchor.constraint(equalToConstant: 0.78),
         
         ])
     }

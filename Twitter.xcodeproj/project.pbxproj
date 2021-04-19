@@ -10,6 +10,7 @@
 		B21ED16425D80D8900946D0B /* TAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21ED16325D80D8900946D0B /* TAuthTextField.swift */; };
 		B227AD8125DB2DF500E6E9E8 /* TwitterTextEditor in Frameworks */ = {isa = PBXBuildFile; productRef = B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */; };
 		B227AD8225DB2DF500E6E9E8 /* TwitterTextEditor in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B2535710262D86A10092DB33 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253570F262D86A10092DB33 /* AboutVC.swift */; };
 		B299344C25D1DC8C00159D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299344B25D1DC8C00159D65 /* AppDelegate.swift */; };
 		B299344E25D1DC8C00159D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299344D25D1DC8C00159D65 /* SceneDelegate.swift */; };
 		B299345525D1DC8F00159D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B299345425D1DC8F00159D65 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		B21ED16325D80D8900946D0B /* TAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAuthTextField.swift; sourceTree = "<group>"; };
+		B253570F262D86A10092DB33 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		B299344825D1DC8C00159D65 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B299344B25D1DC8C00159D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B299344D25D1DC8C00159D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
+		B2535711262D86A70092DB33 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				B253570F262D86A10092DB33 /* AboutVC.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		B299343F25D1DC8C00159D65 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		B299344A25D1DC8C00159D65 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				B2535711262D86A70092DB33 /* About */,
 				B299346B25D1E47600159D65 /* Screens */,
 				B299346325D1E37700159D65 /* Support */,
 				B299346825D1E3ED00159D65 /* Custom Views */,
@@ -251,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2535710262D86A10092DB33 /* AboutVC.swift in Sources */,
 				B299349E25D34A8300159D65 /* TButton.swift in Sources */,
 				B299348425D1E60300159D65 /* MessageVC.swift in Sources */,
 				B299347E25D1E5DE00159D65 /* TrendVC.swift in Sources */,
