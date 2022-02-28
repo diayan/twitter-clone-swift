@@ -11,6 +11,10 @@
 		B227AD8125DB2DF500E6E9E8 /* TwitterTextEditor in Frameworks */ = {isa = PBXBuildFile; productRef = B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */; };
 		B227AD8225DB2DF500E6E9E8 /* TwitterTextEditor in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B227AD8025DB2DF500E6E9E8 /* TwitterTextEditor */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B2535710262D86A10092DB33 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B253570F262D86A10092DB33 /* AboutVC.swift */; };
+		B2844550262F2D220073E68B /* CustomizeExperienceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284454F262F2D220073E68B /* CustomizeExperienceVC.swift */; };
+		B284455226301F460073E68B /* TBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284455126301F450073E68B /* TBodyLabel.swift */; };
+		B28445552630391E0073E68B /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28445542630391E0073E68B /* UITextField+Ext.swift */; };
+		B284455926303B2D0073E68B /* TCheckmarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284455826303B2D0073E68B /* TCheckmarkImageView.swift */; };
 		B299344C25D1DC8C00159D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299344B25D1DC8C00159D65 /* AppDelegate.swift */; };
 		B299344E25D1DC8C00159D65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299344D25D1DC8C00159D65 /* SceneDelegate.swift */; };
 		B299345525D1DC8F00159D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B299345425D1DC8F00159D65 /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 /* Begin PBXFileReference section */
 		B21ED16325D80D8900946D0B /* TAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAuthTextField.swift; sourceTree = "<group>"; };
 		B253570F262D86A10092DB33 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		B284454F262F2D220073E68B /* CustomizeExperienceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeExperienceVC.swift; sourceTree = "<group>"; };
+		B284455126301F450073E68B /* TBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBodyLabel.swift; sourceTree = "<group>"; };
+		B28445542630391E0073E68B /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		B284455826303B2D0073E68B /* TCheckmarkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCheckmarkImageView.swift; sourceTree = "<group>"; };
 		B299344825D1DC8C00159D65 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B299344B25D1DC8C00159D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B299344D25D1DC8C00159D65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +106,22 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		B2844553263038D60073E68B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B28445542630391E0073E68B /* UITextField+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B284455A26303B380073E68B /* Imageviews */ = {
+			isa = PBXGroup;
+			children = (
+				B284455826303B2D0073E68B /* TCheckmarkImageView.swift */,
+			);
+			path = Imageviews;
+			sourceTree = "<group>";
+		};
 		B299343F25D1DC8C00159D65 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +141,7 @@
 		B299344A25D1DC8C00159D65 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				B2844553263038D60073E68B /* Extensions */,
 				B2535711262D86A70092DB33 /* About */,
 				B299346B25D1E47600159D65 /* Screens */,
 				B299346325D1E37700159D65 /* Support */,
@@ -144,6 +169,7 @@
 				B299349725D33A6100159D65 /* Labels */,
 				B21ED16125D80D4A00946D0B /* Buttons */,
 				B21ED16625D80E3D00946D0B /* TextFields */,
+				B284455A26303B380073E68B /* Imageviews */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -174,6 +200,7 @@
 				B299348A25D334AC00159D65 /* LoginVC.swift */,
 				B299348D25D334CA00159D65 /* CreateAccountVC.swift */,
 				B299349025D3350600159D65 /* AuthenticationVC.swift */,
+				B284454F262F2D220073E68B /* CustomizeExperienceVC.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -182,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				B299349A25D3416200159D65 /* TTitleLabel.swift */,
+				B284455126301F450073E68B /* TBodyLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -268,12 +296,16 @@
 				B299347E25D1E5DE00159D65 /* TrendVC.swift in Sources */,
 				B21ED16425D80D8900946D0B /* TAuthTextField.swift in Sources */,
 				B299348B25D334AC00159D65 /* LoginVC.swift in Sources */,
+				B2844550262F2D220073E68B /* CustomizeExperienceVC.swift in Sources */,
+				B284455926303B2D0073E68B /* TCheckmarkImageView.swift in Sources */,
 				B299347925D1E5C200159D65 /* HomeVC.swift in Sources */,
 				B299349125D3350600159D65 /* AuthenticationVC.swift in Sources */,
 				B299344C25D1DC8C00159D65 /* AppDelegate.swift in Sources */,
 				B299348E25D334CA00159D65 /* CreateAccountVC.swift in Sources */,
 				B299346625D1E3DE00159D65 /* TTabBarController.swift in Sources */,
 				B299344E25D1DC8C00159D65 /* SceneDelegate.swift in Sources */,
+				B28445552630391E0073E68B /* UITextField+Ext.swift in Sources */,
+				B284455226301F460073E68B /* TBodyLabel.swift in Sources */,
 				B299349B25D3416200159D65 /* TTitleLabel.swift in Sources */,
 				B299348125D1E5ED00159D65 /* NotificationVC.swift in Sources */,
 			);

@@ -14,6 +14,7 @@ class LoginVC: UIViewController {
     let passwordTextField = UITextField()
     let usernameDivider   = UIView()
     let passwordDivier    = UIView()
+    let bar               = UIToolbar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,11 +84,17 @@ class LoginVC: UIViewController {
     }
     
     func configureViewController() {
-        view.backgroundColor              = .systemBackground
-        let cancelButton                  = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissVC))
-        let aboutButton                   = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .done, target: self, action: #selector(pushToAbout))
-        navigationItem.leftBarButtonItem  = cancelButton
-        navigationItem.rightBarButtonItem = aboutButton
+        view.backgroundColor                  = .systemBackground
+        let cancelButton                      = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissVC))
+        let aboutButton                       = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .done, target: self, action: #selector(pushToAbout))
+        let nextButton                        = UIBarButtonItem(title: "Next", style: .plain, target: self, action: nil)
+        let flexButton                        = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        bar.items                             = [flexButton, nextButton]
+        bar.sizeToFit()
+        usernameTextField.inputAccessoryView  = bar
+        passwordTextField.inputAccessoryView  = bar
+        navigationItem.leftBarButtonItem      = cancelButton
+        navigationItem.rightBarButtonItem     = aboutButton
     }
     
     @objc func dismissVC()  {
@@ -109,6 +116,4 @@ class LoginVC: UIViewController {
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
     }
-    
-    
 }

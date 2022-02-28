@@ -8,11 +8,11 @@
 import UIKit
 import TwitterTextEditor
 
-class CreateAccountVC: UIViewController {
+class CreateAccountVC: UIViewController, UITextFieldDelegate {
     let logoImageView          = UIImageView()
     let createAccountLable     = TTitleLabel(textAlignment: .left, fontSize: 24)
     let nameTextField          = UITextField()
-    let nameTextView           = TextEditorView()
+    let nameTextView           = UITextField()
     let userNameTextField      = UITextField()
     let datePicker             = UIDatePicker()
     let dobTextView            = UITextField()
@@ -21,13 +21,14 @@ class CreateAccountVC: UIViewController {
     var doneButton             = UIBarButtonItem()
     var nameDividerView        = UIView()
     var usernameDividerView    = UIView()
+    var checkmarkImageView     = UIImageView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor                = .systemBackground
-    
-        nameTextView.textAttributesDelegate = self
+        nameTextField.delegate     = self
+        userNameTextField.delegate = self
+        configureViewController()
         layoutUI()
         setNavigationItem()
         configureUIElements()
@@ -53,17 +54,34 @@ class CreateAccountVC: UIViewController {
 
     }
     
+    func configureViewController() {
+        view.backgroundColor                  = .systemBackground
+        let nextButton                        = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(pushToCreateAccount))
+        let flexButton                        = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        
+        toolbar.items                         = [flexButton, nextButton]
+        toolbar.sizeToFit()
+        nameTextField.inputAccessoryView      = toolbar
+        userNameTextField.inputAccessoryView  = toolbar
+        dobTextView.inputAccessoryView        = toolbar
+        
+    }
+    
+    @objc func pushToCreateAccount() {
+        navigationController?.pushViewController(CustomizeExperienceVC(), animated: true)
+    }
+    
     func configureDatePicker() {
         toolbar.sizeToFit()
-        doneButton                          = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        dobTextView.inputAccessoryView      = toolbar
-        datePicker.datePickerMode           = .date
+        doneButton                              = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        dobTextView.inputAccessoryView          = toolbar
+        datePicker.datePickerMode               = .date
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
         } else {
             // Fallback on earlier versions
         }
-        dobTextView.inputView               = datePicker
+        dobTextView.inputView                   = datePicker
     }
     
     @objc func donePressed() {
@@ -139,11 +157,23 @@ class CreateAccountVC: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage  = UIImage()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nameTextField:
+            userNameTextField.becomeFirstResponder()
+        case userNameTextField:
+            dobTextView.becomeFirstResponder()
+        default:
+            dobTextView.resignFirstResponder()
+        }
+        return false
+    }
 }
-
 extension CreateAccountVC: TextEditorViewTextAttributesDelegate {
     func textEditorView(_ textEditorView: TextEditorView,
                         updateAttributedString attributedString: NSAttributedString,
                         completion: @escaping (NSAttributedString?) -> Void){
     }
 }
+
