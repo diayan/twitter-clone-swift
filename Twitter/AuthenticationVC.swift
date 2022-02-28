@@ -104,6 +104,9 @@ class AuthenticationVC: UIViewController {
     }
     
     @objc func pushToLogin() {
-        navigationController?.pushViewController(LoginVC(), animated: true)
+        let loginVC                          = LoginVC()
+        let navController                    = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
 }
